@@ -1,0 +1,136 @@
+#MODULES ARE A SET OF FUNCTIONS AND FEATURES THAT CAN BE USED IN OUR CODE BY IMPORTING THEM. SYNTAX: from module_name import object_name. eg. from datetime import datetime
+#WE CAN IMPORT MODULES FROM A FILE WE HAVE OF MODULES OTHER PEOPLE HAVE CREATED
+#PYTHON HAS A STANDARD LIBRARY WE CAN USE. EXAMPLE BELOW
+
+#TO CHECK WHAT MODULES I HAVE FROM STANDARD PYTHON LIBRARY, TO THE FOLLOWING BELOW
+
+#import sys
+
+#this = sorted(sys.stdlib_module_names)
+#print(this)
+#print(len(this))
+
+
+#datetime module
+from datetime import datetime #IN THIS CASE< MODULE AND OBJECT HAVE SAME NAME
+
+current_date = datetime.now()
+print(current_date) #PRINTS CURRENT DATE AND TIME
+
+mybirthday = datetime(2005, 12, 9, 5, 23, 45)    #this prints any date i want. datetime(year, month, day, hour, second)
+print(mybirthday)
+print(mybirthday.hour)  #output hour of my birthday. can also do  .year, .day .minute etc
+
+
+custom_date_difference = datetime(2026, 7, 1) - datetime(2018, 12, 5)
+print(custom_date_difference)   #this outputs the difference in the date by days, in this case, 2765 days
+print(datetime.now() - datetime(2018, 1, 1))   #can do it with .now function aswell
+
+#strptime extracts a date from a string using certain arguments.  to know which ones to use like below, look it up
+extracted_date_from_str = datetime.strptime("January 18 2025", "%B %d %Y")   #syntax: datetime.strptim(string, code code code)  depends on format code changes. the code for "jan" is different for example
+print(extracted_date_from_str)
+print(extracted_date_from_str.year)  #outputs 2025
+
+#strftime works the opposite way. it turns a datetime into a string to use as a string
+string_date = datetime.strftime(datetime.now(), "%d %b %Y")
+print(string_date)  #output  "16 jun 2026"
+
+
+
+
+
+#IMPORTING THE RANDOM MODULE
+import random
+
+
+# Create random_list below:
+random_list = [random.randint(1, 101) for i in range(101)]   #randint picks a random integer between the specified range as argument for a range of 100 numbers in a list
+#print(random_list)
+# Create randomer_number below:
+randomer_number = random.choice(random_list)  #a random integer from the list we created above
+
+# Print randomer_number below:
+print("\n")
+#print(randomer_number)
+
+
+
+#random.sample takes a list and randomly selects k items from it
+#new_list = random.sample(list, k)
+#for example:
+nums = [1, 2, 3, 4, 5]
+sample_nums = random.sample(nums, 3)
+#print(sample_nums) # 2, 5, 1
+
+
+
+#WE CAN CHANGE THE NAME OF THE MODULE WE ARE USING IN THE CODE EDITOR. WE DO THIS SOMETIMES BECAUSE THE NAME MIGHT BE LENGTHY AND COMPLICATED: Syntax: import module_name as name_i_picked_for_module
+
+
+#import codecademylib3_seaborn
+#from matplotlib import pyplot as plt  #from a module, we imported an object and named it plt
+#import random
+
+
+#numbers_a = range(1, 13)
+#numbers_b = random.sample(range(1000), 12)
+
+#plt.plot(numbers_a, numbers_b)  #this plots two variables together on a graph
+#plt.show()
+
+
+
+
+
+
+# Import Decimal below:
+from decimal import Decimal
+
+# Fix the floating-point math below:
+two_decimal_points1 = Decimal("0.2")                             #if we didnt use Decimal from decimal import, our number would have had a lot of decimal points. decimal import uses accuracy
+two_decimal_points2 = Decimal("0.69")
+two_decimal_points = two_decimal_points1 + two_decimal_points2
+#print(two_decimal_points)
+
+four_decimal_points1 = Decimal("0.53")
+four_decimal_points2 = Decimal("0.65")
+four_decimal_points = four_decimal_points1 * four_decimal_points2
+
+#print(four_decimal_points)
+
+
+
+
+#HERE YOU CAN IMPORT FUNCTIONS FROM OTHER FILES: from file_name import function:
+#from Functions import combine_sort2
+                                                            #combine_sort2() is a function from functions file we imported
+#print(combine_sort2([4, 10, 2, 5, 5, 3], [-10, 2, 5, 10]))
+
+
+
+
+#THIS BELOW IS A CODECADEY PROJECT THAT WILL NOT WORK HERE. JUST A REMINDER FOR HOW MODULES WORK
+
+#import datetime as dt
+#from decimal import Decimal
+#from random import randint, choice
+#from custom_module import generate_time_travel_message
+
+#current date
+#current_date = dt.datetime.now()
+#print(f"The current date is {current_date}.")
+
+#Time travel year
+#year = randint(1, 2026)
+
+#Time travel cost
+#base_cost = Decimal(1550.00)
+#cost_multiplier = Decimal(current_date.year - year) / 100
+#cost = base_cost * cost_multiplier
+
+#destinations = ["Arizona", "Antarctica", "London", "Nigeria", "Germany", "Syria"]
+#destination = choice(destinations)
+
+#print(generate_time_travel_message(year, destination, cost))
+
+

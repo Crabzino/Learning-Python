@@ -92,3 +92,185 @@ teaching_table_area = circle.area(36 / 2)
 round_room_area = circle.area(11460 / 2)
 
 print(f"The areas of the pizza, teaching table and round room building is as follows: {pizza_area}, {teaching_table_area} and {round_room_area}.")
+
+
+
+
+
+
+
+#Using the '__init__' method to instantiate a class object, so would not have to call the function itself within the class
+class Menu:
+  def __init__(self, num_of_people):          #use '__init__' after def and before the parameters
+    food_menu = "Here is the menu: Lamb, Beef, Chicken."
+    for num in range(num_of_people):
+      print(food_menu)
+
+booking1 = Menu(4)     #variable to instantiate the class and add the argument  for num_of_people parameter
+
+
+
+#Another example
+class Circle:
+  pi = 3.14
+  
+  # Add constructor here:
+  def __init__(self, diameter):
+    print(f"New circle with diameter: {diameter}")
+
+teaching_table = Circle(36)
+
+
+
+
+
+
+#Instance Variables:  each instance of a class can hold different kinds of data
+class Store:
+  pass   #we use pass to not cause an indentation error
+
+alternative_rocks = Store()   #use the Store class to instantiate the object
+isabelles_ices = Store()      #sane here
+
+alternative_rocks.store_name = "Alternative Rocks"     #we created a .store_name method to holde to types of data
+isabelles_ices.store_name = "Isabelle's Ices"          #same here
+
+
+
+
+
+
+
+#attribute functions
+class NoCustomAttributes:
+  pass
+
+attributeless = NoCustomAttributes()
+
+try:
+  attributeless.fake_attribute
+except AttributeError:
+  print("This text gets printed!")
+
+
+#we can use hasattr() to see if an object has an attribute. syntax: hasattr(object, “attribute”)
+hasattr(attributeless, "fake_attribute")
+# returns False
+
+
+
+#getattr() would return the value of given object and attribute
+getattr(attributeless, "other_fake_attribute", 800)   #we use the defualt parameter at the end if the object has no attribute, it would return the 800
+# returns 800, the default value
+
+
+
+
+
+#using the hasattr() to see if an element in a list has the count attribute
+can_we_count_it = [{'s': False}, "sassafrass", 18, ["a", "c", "s", "d", "s"]]
+
+for element in can_we_count_it:
+  if hasattr(element, "count"):
+    print(str(type(element)) + " has the count attribute!")
+  else:
+    print(str(type(element)) + " does not have the count attribute :(")
+
+#output
+#<class 'dict'> does not have the count attribute :(
+#<class 'str'> has the count attribute!
+#<class 'int'> does not have the count attribute :(
+#<class 'list'> has the count attribute!
+
+
+
+
+
+
+class SearchEngineEntry:
+  def __init__(self, url):
+    self.url = url
+
+codecademy = SearchEngineEntry("www.codecademy.com")
+wikipedia = SearchEngineEntry("www.wikipedia.org")
+
+print(codecademy.url)
+# prints "www.codecademy.com"
+
+print(wikipedia.url)
+# prints "www.wikipedia.org"
+
+
+
+
+
+
+
+
+
+
+#using self properly. it is a very powerful tool
+class Circle:
+  pi = 3.14
+  def __init__(self, diameter):
+    print("Creating circle with diameter {d}".format(d=diameter))
+    # Add assignment for self.radius here:
+    self.radius = diameter / 2
+
+  def circumference(self):
+    return 2 * self.pi * self.radius
+
+  
+medium_pizza = Circle(12)
+teaching_table = Circle(36)
+round_room = Circle(11460)
+
+print(medium_pizza.circumference())
+print(teaching_table.circumference())
+print(round_room.circumference())
+
+
+
+
+
+
+#Using dir() to find all the attributes associated with an object:
+print(dir(5))
+
+
+
+def this_function_is_an_object(v1, v2):
+  return v1 + v2
+
+print(dir(this_function_is_an_object))
+
+
+
+
+
+
+
+#here we added the repr() function which allows to output the representation of an object
+class Circle:
+  pi = 3.14
+  
+  def __init__(self, diameter):
+    self.radius = diameter / 2
+  
+  def area(self):
+    return self.pi * self.radius ** 2
+  
+  def circumference(self):
+    return self.pi * 2 * self.radius
+  
+  def __repr__(self):
+   return f"Circle with radius {self.radius}."
+  
+medium_pizza = Circle(12)
+teaching_table = Circle(36)
+round_room = Circle(11460)
+ 
+                                                   #from this:  "<__main__.Employee object at 0x104e88390>" to this:  Circle with radius 6.0.   Circle with radius 18.0.  Circle with radius 5730.0.
+print(medium_pizza)
+print(teaching_table)
+print(round_room)

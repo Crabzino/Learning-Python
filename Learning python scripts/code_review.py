@@ -99,11 +99,11 @@ def reverse_string(word):
   return reversed_word
   
 # Uncomment these function calls to test your  function:
-print(reverse_string("Codecademy"))
+#print(reverse_string("Codecademy"))
 # should print ymedacedoC
-print(reverse_string("Hello world!"))
+#print(reverse_string("Hello world!"))
 # should print !dlrow olleH
-print(reverse_string(""))
+#print(reverse_string(""))
 # should print
 
 
@@ -149,3 +149,106 @@ def add_exclamation(word):
 # should print Codecademy!!!!!!!!!!
 #print(add_exclamation("Codecademy is the best place to learn"))
 # should print Codecademy is the best place to learn
+
+
+
+
+
+
+
+
+
+
+#DICTIONARIES REVIEW:
+
+def max_key(my_dictionary):
+  largest_key = float("-inf")
+  largest_value = float("-inf")
+  for key, value in my_dictionary.items():                           #this function returns the key with the largest value
+    if value > largest_value:
+      largest_value = value
+      largest_key = key
+  return largest_key
+
+# Uncomment these function calls to test your  function:
+#print(max_key({1:100, 2:1, 3:4, 4:10}))
+# should print 1
+#print(max_key({"a":100, "b":10, "c":1000}))
+# should print "c"
+
+
+
+
+
+#makes a dictionary of strings in words list with their length being the value
+def word_length_dictionary(words):
+  new_dictionary = {}
+  for word in words:
+    new_dictionary.update({word: len(word)})
+  return new_dictionary
+
+
+# Uncomment these function calls to test your  function:
+#print(word_length_dictionary(["apple", "dog", "cat"]))
+# should print {"apple":5, "dog": 3, "cat":3}
+#print(word_length_dictionary(["a", ""]))
+# should print {"a": 1, "": 0}
+
+
+
+
+
+
+def frequency_dictionary(words):
+  frequent_dictionary = {}
+  for word in words:                                          #for every same word in list, the dictionary key will be the word and the value will be the amount of time the key appears in the list
+    if not word in frequent_dictionary:
+      frequent_dictionary[word] = 0
+    frequent_dictionary[word] += 1
+  return frequent_dictionary
+
+
+# Uncomment these function calls to test your  function:
+#print(frequency_dictionary(["apple", "apple", "cat", 1]))
+# should print {"apple":2, "cat":1, 1:1}
+#print(frequency_dictionary([0,0,0,0,0]))
+# should print {0:5}
+
+
+
+
+
+
+def unique_values(my_dictionary):
+  unique_item = []
+  for item in my_dictionary.values():
+    if item not in unique_item:                                       #returns the amount of unique values in a dictionary
+      unique_item.append(item)
+  return len(unique_item)
+
+
+# Uncomment these function calls to test your  function:
+#print(unique_values({0:3, 1:1, 4:1, 5:3}))
+# should print 2
+#print(unique_values({0:3, 1:3, 4:3, 5:3}))
+# should print 1
+
+
+
+
+
+
+def count_first_letter(names):
+  letters = {}
+  for key in names.keys():                               #this function adds to a new dictionary, the first letter of a key in the old dictionary if it isnt their already, and the value will be the amount of people who have the same start letter surname fro the old dictionary
+    first_letter = key[0]
+    if first_letter not in letters:
+      letters[first_letter] = 0
+    letters[first_letter] += len(names[key])
+  return letters
+
+# Uncomment these function calls to test your  function:
+#print(count_first_letter({"Stark": ["Ned", "Robb", "Sansa"], "Snow" : ["Jon"], "Lannister": ["Jaime", "Cersei", "Tywin"]}))
+# should print {"S": 4, "L": 3}
+#print(count_first_letter({"Stark": ["Ned", "Robb", "Sansa"], "Snow" : ["Jon"], "Sannister": ["Jaime", "Cersei", "Tywin"]}))
+# should print {"S": 7}

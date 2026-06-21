@@ -252,3 +252,53 @@ def count_first_letter(names):
 # should print {"S": 4, "L": 3}
 #print(count_first_letter({"Stark": ["Ned", "Robb", "Sansa"], "Snow" : ["Jon"], "Sannister": ["Jaime", "Cersei", "Tywin"]}))
 # should print {"S": 7}
+
+
+
+
+
+
+
+
+#CLASSES REVIEW
+
+class DriveBot:
+                                                                        #this class creates a robot with each one having a unique id. we can change the direction, speed, sensor_range, longitude and latitude and disable or enable control of the robots
+    all_disabled = False
+    latitude = -999999
+    longitude = -999999
+    robot_count = 0
+
+    def __init__(self, motor_speed = 0, direction = 180, sensor_range = 10):
+        self.motor_speed = motor_speed
+        self.direction = direction
+        self.sensor_range = sensor_range
+        DriveBot.robot_count += 1
+        self.id = DriveBot.robot_count
+        
+    
+    def control_bot(self, new_speed, new_direction):
+        self.motor_speed = new_speed
+        self.direction = new_direction                            #we can override current variables with this method here
+
+    def adjust_sensor(self, new_sensor_range):
+        self.sensor_range = new_sensor_range
+
+robot_1 = DriveBot()
+robot_1.motor_speed = 5
+robot_1.direction = 90
+robot_1.sensor_range = 10
+
+robot_2 = DriveBot(35, 75, 25)
+robot_3 = DriveBot(20, 60, 10)
+
+#print(robot_1.id)
+#print(robot_2.id)
+#print(robot_3.id)
+
+
+
+
+
+
+
